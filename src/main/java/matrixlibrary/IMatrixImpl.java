@@ -7,10 +7,19 @@ public class IMatrixImpl implements IMatrix {
     }
 
     public void createIdentityMatrix(int size) {
-
+        matrix =new int [size][size];
+        for(int i=0;i<size;i++)
+        {
+            for(int j=0;j<size;i++){
+                if(i==j)matrix[i][j]=1;
+                else matrix[i][j]=0;
+            }
+        }
     }
 
-    public double determinant() {
+    public double determinant() throws InvalidDimensionException {
+        if(height!=width)throw new InvalidDimensionException();
+
         return 0;
     }
 
@@ -30,4 +39,5 @@ public class IMatrixImpl implements IMatrix {
 
     private int width;
     private int height;
+    int [][] matrix;
 }

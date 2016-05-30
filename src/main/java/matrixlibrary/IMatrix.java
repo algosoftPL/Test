@@ -5,7 +5,7 @@ public interface IMatrix {
     public void createIdentityMatrix(int size);
 
     /** Oblicza wartość wyznacznika dla kwadratowej macierzy, w przypadku innej mamy wyjątek */
-    public double determinant();
+    public double determinant() throws InvalidDimensionException;
 
     /** Zwraca wartość pola w macierzy */
     public double getMatrixValue(int row, int column);

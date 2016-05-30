@@ -5,7 +5,7 @@ public interface IMatrix {
     void createIdentityMatrix(int size);
 
     /** Oblicza wartość wyznacznika dla kwadratowej macierzy, w przypadku innej mamy wyjątek */
-    double determinant();
+    double determinant()  throws InvalidDimensionException;
 
     /** Zwraca wartość pola w macierzy */
     double getMatrixValue(int row, int column);
@@ -14,7 +14,7 @@ public interface IMatrix {
     void setMatrixValue(int row, int column, double value);
 
     /** Ustala zawartość macierzy na podstawie tablicy */
-    void setMatrixValues(double[][] values);
+    void setMatrixValues(double[][] values) throws InvalidDimensionException;
 
     /** Reprezentacja w formie String macierzy, powinna utrzymywać konwencję wierszy i kolumn */
     String toString();

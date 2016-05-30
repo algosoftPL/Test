@@ -42,6 +42,7 @@ public class IMatrixImpl implements IMatrix {
 
     public String toString() {
         StringBuilder build = new StringBuilder();
+        return  null;
     }
 
     private int width;

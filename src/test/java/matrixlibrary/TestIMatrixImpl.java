@@ -1,7 +1,9 @@
 package matrixlibrary;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.fail;
 
+import junit.framework.Assert;
 import org.junit.Test;
 
 public class TestIMatrixImpl {
@@ -9,6 +11,16 @@ public class TestIMatrixImpl {
     private int MATRIX_WIDTH;
     private int MATRIX_HEIGHT;
 
+    @Test(expected = IllegalArgumentException.class)
+    public void createIdentityMatrixShouldThrowIllegalArgumentExceptionAtZero() {
+        iMatrixImpl = new IMatrixImpl();
+        iMatrixImpl.createIdentityMatrix(0);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void createIdentityMatrixShouldThrowIllegalArgumentExceptionAtNegative() {
+        iMatrixImpl = new IMatrixImpl();
+        iMatrixImpl.createIdentityMatrix(-1);
+    }
     @Test
     public void testCreateIdentityMatrix() {
         MATRIX_WIDTH = MATRIX_HEIGHT = 6;
@@ -24,6 +36,7 @@ public class TestIMatrixImpl {
             }
         }
     }
+
     @Test
     public void testDeterminant() {
         MATRIX_WIDTH = MATRIX_HEIGHT = 6;

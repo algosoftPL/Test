@@ -3,7 +3,7 @@ package matrixlibrary;
 public class IMatrixImpl implements IMatrix {
 
     public void createIdentityMatrix(int size) {
-        if (size < 0) {
+        if (size <= 0) {
             throw new IllegalArgumentException();
         }
         this.data = new double[size][size];
@@ -33,14 +33,23 @@ public class IMatrixImpl implements IMatrix {
 
     }
     public void setMatrixValues(double[][] values) {
-        data = new double[values.length][values[0].length];
-        for(int i=0;i<values.length;i++){
-            for(int j=0;j<values[i].length;j++){
-                data[i][j]=values[i][j];
+        this.width = values.length;
+        this.height = values[0].length;
+        data = new double[width][height];
+
+        for(int i = 0; i < width; i++) {
+            for(int j = 0; j < height; i++) {
+                data[i][j] = values[i][j];
             }
         }
-        width=values.length;
-        height= values[0].length;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
     }
 
     public String toString() {

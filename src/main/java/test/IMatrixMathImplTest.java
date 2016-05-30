@@ -54,6 +54,12 @@ public class IMatrixMathImplTest {
     @Test
     public void testMatrixSubtracting() throws Exception {
         double[][] expectedResults = new double[][]{{-8, -6, -4, -2}, {-6, -4, -2, 0}, {-4, -2, 0, 2}, {-2, 0, 2, 4}};
+        IMatrix m3 = math.matrixSubtracting(m1,m2);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(m3.getMatrixValue(i,j),expectedResults[i][j],1e-12);
+            }
+        }
     }
 
     @Test

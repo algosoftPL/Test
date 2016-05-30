@@ -46,7 +46,6 @@ public class IMatrixImpl implements IMatrix {
         return  null;
     }
 
-
     public IMatrixImpl() {
 
     }

@@ -27,7 +27,8 @@ public class TestIMatrixImpl {
     @Test
     public void testDeterminant() {
         MATRIX_WIDTH = MATRIX_HEIGHT = 6;
-        iMatrixImpl = new IMatrixImpl(6, 6);}
+        iMatrixImpl = new IMatrixImpl();}
+
     @Test
     public void testGetMatrixValue() {
         iMatrixImpl = new IMatrixImpl(6, 6);}

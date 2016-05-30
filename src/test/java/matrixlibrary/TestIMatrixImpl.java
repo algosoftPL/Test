@@ -1,7 +1,9 @@
 package matrixlibrary;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.fail;
 
+import junit.framework.Assert;
 import org.junit.Test;
 
 public class TestIMatrixImpl {
@@ -37,8 +39,25 @@ public class TestIMatrixImpl {
 
     @Test
     public void testDeterminant() {
-        MATRIX_WIDTH = MATRIX_HEIGHT = 6;
+        MATRIX_WIDTH = MATRIX_HEIGHT = 3;
         iMatrixImpl = new IMatrixImpl(MATRIX_WIDTH, MATRIX_HEIGHT);
+        double[][] data;
+
+        data = new double[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        iMatrixImpl.setMatrixValues(data);
+        try {
+            assertEquals(iMatrixImpl.determinant(), 0);
+        } catch (InvalidDimensionException e) {
+            fail("determinant threw up");
+        }
+
+        data = new double[][] {{1, 2, 3}, {5, 1, 2}, {1, 3, 4}};
+        iMatrixImpl.setMatrixValues(data);
+        try {
+            assertEquals(iMatrixImpl.determinant(), 4);
+        } catch (InvalidDimensionException e) {
+            fail("determinant threw up");
+        }
     }
 
     @Test

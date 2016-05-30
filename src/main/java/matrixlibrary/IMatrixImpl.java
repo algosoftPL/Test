@@ -33,14 +33,15 @@ public class IMatrixImpl implements IMatrix {
 
     }
     public void setMatrixValues(double[][] values) {
-        data = new double[values.length][values[0].length];
-        for(int i=0;i<values.length;i++){
-            for(int j=0;j<values[i].length;i++){
-                data[i][j]=values[i][j];
+        this.width = values.length;
+        this.height = values[0].length;
+        data = new double[width][height];
+
+        for(int i = 0; i < width; i++) {
+            for(int j = 0; j < height; i++) {
+                data[i][j] = values[i][j];
             }
         }
-        width=values.length;
-        height= values[0].length;
     }
 
     public int getWidth() {

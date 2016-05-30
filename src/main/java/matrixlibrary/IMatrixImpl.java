@@ -43,6 +43,14 @@ public class IMatrixImpl implements IMatrix {
         height= values[0].length;
     }
 
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
     public String toString() {
         StringBuilder build = new StringBuilder();
         for(int i=0;i<width;i++){
@@ -51,12 +59,10 @@ public class IMatrixImpl implements IMatrix {
             }
             build.append("\n");
         }
-        return  build.toString();
+        return build.toString();
     }
 
-    public IMatrixImpl() {
-
-    }
+    public IMatrixImpl() {}
 
     public IMatrixImpl(int width, int height) {
         this.width = width;

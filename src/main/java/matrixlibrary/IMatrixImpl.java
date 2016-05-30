@@ -16,6 +16,8 @@ public class IMatrixImpl implements IMatrix {
                 }
             }
         }
+        width=size;
+        height=size;
     }
 
     public double determinant() throws InvalidDimensionException {
@@ -43,7 +45,13 @@ public class IMatrixImpl implements IMatrix {
 
     public String toString() {
         StringBuilder build = new StringBuilder();
-        return  null;
+        for(int i=0;i<width;i++){
+            for(int j=0;j<height;j++){
+                build.append(data[i][j]+" ");
+            }
+            build.append("\n");
+        }
+        return  build.toString();
     }
 
     public IMatrixImpl() {

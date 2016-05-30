@@ -15,10 +15,10 @@
                 <artifactId>pitest-maven</artifactId>
                 <configuration>
                     <targetClasses>
-                        <param>com.your.package.root.want.to.mutate*</param>
+                        <param>matrixlibrary.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>com.your.package.root*</param>
+                        <param>matrixlibrary.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

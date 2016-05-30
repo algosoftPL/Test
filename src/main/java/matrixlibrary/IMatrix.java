@@ -16,6 +16,9 @@ public interface IMatrix {
     /** Ustala zawartość macierzy na podstawie tablicy */
     void setMatrixValues(double[][] values) throws InvalidDimensionException;
 
+    int getWidth();
+    int getHeight();
+
     /** Reprezentacja w formie String macierzy, powinna utrzymywać konwencję wierszy i kolumn */
     String toString();
 }

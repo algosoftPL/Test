@@ -35,7 +35,7 @@ public class IMatrixImpl implements IMatrix {
     public void setMatrixValues(double[][] values) {
         data = new double[values.length][values[0].length];
         for(int i=0;i<values.length;i++){
-            for(int j=0;j<values[i].length;i++){
+            for(int j=0;j<values[i].length;j++){
                 data[i][j]=values[i][j];
             }
         }

@@ -40,6 +40,19 @@ public class TestIMatrixImpl {
         iMatrixImpl = new IMatrixImpl(6, 6);}
     @Test
     public void testToString() {
-        iMatrixImpl = new IMatrixImpl(6, 6);}
+        iMatrixImpl = new IMatrixImpl(6, 6);
+        iMatrixImpl.createIdentityMatrix(3);
+        assertEquals(iMatrixImpl.toString(),"1.0 0.0 0.0 \n0.0 1.0 0.0 \n0.0 0.0 1.0 \n");
+        iMatrixImpl = new IMatrixImpl(1,5);
+        double [][] arr = new double[1][5];
+        for(int i=0;i<5;i++)
+        {
+            arr[0][i]=i;
+        }
+        iMatrixImpl.setMatrixValues(arr);
+        assertEquals(iMatrixImpl.toString(),"0.0 1.0 2.0 3.0 4.0 \n");
+
+
+    }
 
 }

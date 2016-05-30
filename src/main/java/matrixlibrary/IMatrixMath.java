@@ -5,13 +5,13 @@ public interface IMatrixMath {
     IMatrix	inverseMatrix(IMatrix m1);
 
     /** Dodawanie macierzy, zwracamy uwage na poprawność rozmiaru macierzy */
-    IMatrix	matrixAddition(IMatrix m1, IMatrix m2);
+    IMatrix	matrixAddition(IMatrix m1, IMatrix m2) throws InvalidDimensionException;
 
     /** Mnożenie dwóch macierzy, zwracamy uwagę na zgodność rozmiarów */
-    IMatrix	matrixMultiplication(IMatrix m1, IMatrix m2);
+    IMatrix	matrixMultiplication(IMatrix m1, IMatrix m2) throws InvalidDimensionException;
 
     /** Odejmowanie macierzy, zwracamy uwage na poprawność rozmiaru macierzy */
-    IMatrix	matrixSubtracting(IMatrix m1, IMatrix m2);
+    IMatrix	matrixSubtracting(IMatrix m1, IMatrix m2) throws InvalidDimensionException;
 
     /** Zwraca macierz transponowaną */
     IMatrix	matrixTransposition(IMatrix m1);

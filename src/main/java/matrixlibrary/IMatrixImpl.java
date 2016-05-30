@@ -3,7 +3,7 @@ package matrixlibrary;
 public class IMatrixImpl implements IMatrix {
 
     public void createIdentityMatrix(int size) {
-        if (size < 0) {
+        if (size <= 0) {
             throw new IllegalArgumentException();
         }
         this.data = new double[size][size];

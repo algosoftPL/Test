@@ -10,12 +10,15 @@ public class TestIMatrixImpl {
     private int MATRIX_HEIGHT;
 
     @Test(expected = IllegalArgumentException.class)
-    public void createIdentityMatrixShouldThrowIllegalArgumentException() {
-        MATRIX_WIDTH = MATRIX_HEIGHT = 6;
+    public void createIdentityMatrixShouldThrowIllegalArgumentExceptionAtZero() {
         iMatrixImpl = new IMatrixImpl();
         iMatrixImpl.createIdentityMatrix(0);
     }
-
+    @Test(expected = IllegalArgumentException.class)
+    public void createIdentityMatrixShouldThrowIllegalArgumentExceptionAtNegative() {
+        iMatrixImpl = new IMatrixImpl();
+        iMatrixImpl.createIdentityMatrix(-1);
+    }
     @Test
     public void createIdentityMatrixGeneratesAProperIdentityMatrix() {
         MATRIX_WIDTH = MATRIX_HEIGHT = 6;
@@ -31,10 +34,12 @@ public class TestIMatrixImpl {
             }
         }
     }
+
     @Test
     public void testDeterminant() {
         MATRIX_WIDTH = MATRIX_HEIGHT = 6;
-        iMatrixImpl = new IMatrixImpl();}
+        iMatrixImpl = new IMatrixImpl(MATRIX_WIDTH, MATRIX_HEIGHT);
+    }
 
     @Test
     public void testGetMatrixValue() {

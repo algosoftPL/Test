@@ -1,10 +1,6 @@
 package matrixlibrary;
 
 public class IMatrixImpl implements IMatrix {
-    public IMatrixImpl(int width, int height) {
-        this.width = width;
-        this.height = height;
-    }
 
     public void createIdentityMatrix(int size) {
 
@@ -28,6 +24,18 @@ public class IMatrixImpl implements IMatrix {
         return null;
     }
 
+
+    public IMatrixImpl() {
+
+    }
+
+    public IMatrixImpl(int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.data = new double[width][height];
+    }
+
+    private double[][] data;
     private int width;
     private int height;
 }

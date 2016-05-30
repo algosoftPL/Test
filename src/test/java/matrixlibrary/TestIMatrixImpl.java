@@ -1,34 +1,34 @@
 package matrixlibrary;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestIMatrixImpl {
+    private IMatrixImpl iMatrixImpl;
 
     @Test
-    public void testPrintMessage() {
-
+    public void testCreateIdentityMatrix() {
+        iMatrixImpl = new IMatrixImpl(6, 6);
+        iMatrixImpl.createIdentityMatrix(6);
     }
-
-    public void testCreateIdentityMatrix(int size) {
-
-    }
-
+    @Test
     public void testDeterminant() {
-        return 0;
-    }
+        iMatrixImpl = new IMatrixImpl(6, 6);}
 
-    public void testGetMatrixValue(int row, int column) {
-        return 0;
-    }
-    public void testSetMatrixValue(int row, int column, double value) {
+    @Test
+    public void testGetMatrixValue() {
+        iMatrixImpl = new IMatrixImpl(6, 6);}
 
-    }
-    public void testSetMatrixValues(double[][] values) {
+    @Test
+    public void testSetMatrixValue() {
+        iMatrixImpl = new IMatrixImpl(6, 6);}
 
-    }
+    @Test
+    public void testSetMatrixValues() {
+        iMatrixImpl = new IMatrixImpl(6, 6);}
 
+    @Test
     public void testToString() {
-        return null;
-    }
+        iMatrixImpl = new IMatrixImpl(6, 6);}
 
 }

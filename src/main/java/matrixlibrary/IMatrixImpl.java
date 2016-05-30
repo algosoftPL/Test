@@ -1,18 +1,19 @@
 package matrixlibrary;
 
 public class IMatrixImpl implements IMatrix {
-    public IMatrixImpl(int width, int height) {
-        this.width = width;
-        this.height = height;
-    }
 
     public void createIdentityMatrix(int size) {
-        matrix =new double [size][size];
-        for(int i=0;i<size;i++)
-        {
-            for(int j=0;j<size;i++){
-                if(i==j)matrix[i][j]=1;
-                else matrix[i][j]=0;
+        if (size < 0) {
+            throw new IllegalArgumentException();
+        }
+        this.data = new double[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (i == j) {
+                    data[i][j] = 1.0;
+                } else {
+                    data[i][j] = 0.0;
+                }
             }
         }
     }
@@ -23,7 +24,7 @@ public class IMatrixImpl implements IMatrix {
     }
 
     public double getMatrixValue(int row, int column) {
-        return matrix[row][column];
+        return data[row][column];
     }
     public void setMatrixValue(int row, int column, double value) {
         matrix[row][column]=value;
@@ -45,7 +46,18 @@ public class IMatrixImpl implements IMatrix {
         return  null;
     }
 
+
+    public IMatrixImpl() {
+
+    }
+
+    public IMatrixImpl(int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.data = new double[width][height];
+    }
+
+    private double[][] data;
     private int width;
     private int height;
-    double [][] matrix;
 }

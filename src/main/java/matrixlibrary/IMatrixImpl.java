@@ -27,14 +27,14 @@ public class IMatrixImpl implements IMatrix {
         return data[row][column];
     }
     public void setMatrixValue(int row, int column, double value) {
-        matrix[row][column]=value;
+        data[row][column]=value;
 
     }
     public void setMatrixValues(double[][] values) {
-        matrix = new double[values.length][values[0].length];
+        data = new double[values.length][values[0].length];
         for(int i=0;i<values.length;i++){
             for(int j=0;j<values[i].length;i++){
-                matrix[i][j]=values[i][j];
+                data[i][j]=values[i][j];
             }
         }
         width=values.length;

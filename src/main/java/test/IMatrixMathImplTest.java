@@ -64,6 +64,13 @@ public class IMatrixMathImplTest {
 
     @Test
     public void testScalarMultiplication() throws Exception {
-
+        double[][] expectedResults = new double[][]{{10, 20, 30, 40}, {20, 30, 40, 50}, {30, 40, 50, 60}, {40, 50, 60, 70}};
+        double sc = 10;
+        IMatrix m3 = math.scalarMultiplication(m1,sc);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(expectedResults[i][j],m3.getMatrixValue(i,j),1e-12);
+            }
+        }
     }
 }

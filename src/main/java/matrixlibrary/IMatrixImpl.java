@@ -16,29 +16,38 @@ public class IMatrixImpl implements IMatrix {
                 }
             }
         }
-        width=size;
-        height=size;
+        width = size;
+        height = size;
     }
 
     public double determinant() throws InvalidDimensionException {
-        if(height!=width)throw new InvalidDimensionException();
-        return 0;
+        if (height != width) throw new InvalidDimensionException();
+        if (height > 3) throw new InvalidDimensionException("Determinant only implemented up to 3x3 matrices");
+        if (height == 1)
+            return data[0][0];
+        if (height == 2)
+            return (data[0][0] * data[1][1]) - (data[0][1] * data[1][0]);
+        double a = (data[0][0] * data[1][1] * data[2][2]) + (data[0][1] * data[1][2] * data[2][0]) + (data[0][2] * data[1][0] * data[2][1]);
+        double b = (data[2][0] * data[1][1] * data[0][2]) + (data[0][0] * data[1][2] * data[2][1]) + (data[0][1] * data[1][0] * data[2][2]);
+        return a - b;
     }
 
     public double getMatrixValue(int row, int column) {
         return data[row][column];
     }
+
     public void setMatrixValue(int row, int column, double value) {
-        data[row][column]=value;
+        data[row][column] = value;
 
     }
+
     public void setMatrixValues(double[][] values) {
         this.width = values.length;
         this.height = values[0].length;
         data = new double[width][height];
 
-        for(int i = 0; i < width; i++) {
-            for(int j = 0; j < height; i++) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
                 data[i][j] = values[i][j];
             }
         }
@@ -54,13 +63,13 @@ public class IMatrixImpl implements IMatrix {
 
     public String toString() {
         StringBuilder build = new StringBuilder();
-        for(int i=0;i<width;i++){
-            for(int j=0;j<height;j++){
-                build.append(data[i][j]+" ");
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                build.append(data[i][j] + " ");
             }
             build.append("\n");
         }
-        return  build.toString();
+        return build.toString();
     }
 
     public IMatrixImpl() {
@@ -71,6 +80,17 @@ public class IMatrixImpl implements IMatrix {
         this.width = width;
         this.height = height;
         this.data = new double[width][height];
+    }
+
+    public IMatrixImpl(double[][] data) {
+        width = data.length;
+        height = data[0].length;
+        this.data = new double[data.length][data[0].length];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                this.data[i][j] = data[i][j];
+            }
+        }
     }
 
     private double[][] data;

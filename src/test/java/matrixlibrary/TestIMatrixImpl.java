@@ -3,7 +3,6 @@ package matrixlibrary;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.fail;
 
-import junit.framework.Assert;
 import org.junit.Test;
 
 public class TestIMatrixImpl {
@@ -38,9 +37,17 @@ public class TestIMatrixImpl {
     }
 
     @Test
-    public void testDeterminant() {
-        MATRIX_WIDTH = MATRIX_HEIGHT = 6;
-        iMatrixImpl = new IMatrixImpl();}
+    public void testDeterminant() throws InvalidDimensionException {
+        //MATRIX_WIDTH = MATRIX_HEIGHT = 6;
+        iMatrixImpl = new IMatrixImpl();
+        iMatrixImpl.setMatrixValues(new double[][]{
+                {1,2,3,4},
+                {2,3,4,5},
+                {3,4,5,6},
+                {4,5,6,7}
+        });
+        assertEquals(iMatrixImpl.determinant(),0);
+    }
 
     @Test
     public void testGetMatrixValue() {

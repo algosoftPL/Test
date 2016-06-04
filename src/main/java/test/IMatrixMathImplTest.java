@@ -1,11 +1,7 @@
 package test;
 
-import matrixlibrary.IMatrix;
-import matrixlibrary.IMatrixImpl;
-import matrixlibrary.IMatrixMath;
-import matrixlibrary.IMatrixMathImpl;
+import matrixlibrary.*;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -72,5 +68,26 @@ public class IMatrixMathImplTest {
                 assertEquals(expectedResults[i][j],m3.getMatrixValue(i,j),1e-12);
             }
         }
+    }
+
+    @Test
+    public void testInverseMatrix() throws Exception {
+        try {
+            IMatrix m = new IMatrixImpl(5,5);
+            //Det(m)==0;
+            math.inverseMatrix(m);
+            fail();
+        }catch (Exception e){}
+
+    }
+
+    @Test
+    public void testMatrixMultiplication() throws Exception {
+
+    }
+
+    @Test
+    public void testMatrixTransposition() throws Exception {
+
     }
 }

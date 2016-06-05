@@ -1,4 +1,4 @@
-package test;
+package matrixlibrary;
 
 import matrixlibrary.*;
 import org.junit.After;

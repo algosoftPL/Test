@@ -52,6 +52,7 @@ public class IMatrixMathImpl implements IMatrixMath {
     }
 
     public IMatrix matrixMultiplication(IMatrix m1, IMatrix m2) {
+        // TODO: 05/06/2016 Implement
         return null;
     }
 
@@ -70,6 +71,7 @@ public class IMatrixMathImpl implements IMatrixMath {
     }
 
     public IMatrix matrixTransposition(IMatrix m1) {
+        // TODO: 05/06/2016 Implement
         return null;
     }
 

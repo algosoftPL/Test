@@ -75,10 +75,10 @@ public class IMatrixMathImplTest {
 
         IMatrix m = new IMatrixImpl(5, 5);
         //Za duże;
-        assertEquals(math.inverseMatrix(m),null);
+        assertEquals(math.inverseMatrix(m), null);
 
         //det(m2)==0
-        assertEquals(math.inverseMatrix(m2),null);
+        assertEquals(math.inverseMatrix(m2), null);
 
         m.setMatrixValues(new double[][]{{1, 2, 2}, {1, 1, 0}, {2, 0, 0}});
         double[][] expectedResults = new double[][]{{0, 0, 0.5}, {0, 1, -1}, {0.5, -0.5, 0.25}};
@@ -101,11 +101,11 @@ public class IMatrixMathImplTest {
 
     @Test
     public void testMatrixMultiplication() throws Exception {
-
+        // TODO: 05/06/2016 Add test here
     }
 
     @Test
     public void testMatrixTransposition() throws Exception {
-
+        // TODO: 05/06/2016 Add test here
     }
 }

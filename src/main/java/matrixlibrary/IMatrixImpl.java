@@ -63,9 +63,9 @@ public class IMatrixImpl implements IMatrix {
 
     public String toString() {
         StringBuilder build = new StringBuilder();
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                build.append(data[i][j] + " ");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                build.append(data[j][i] + " ");
             }
             build.append("\n");
         }

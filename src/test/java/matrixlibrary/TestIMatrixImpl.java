@@ -3,6 +3,7 @@ package matrixlibrary;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.fail;
 
+import junit.framework.Assert;
 import org.junit.Test;
 
 public class TestIMatrixImpl {
@@ -41,12 +42,22 @@ public class TestIMatrixImpl {
         //MATRIX_WIDTH = MATRIX_HEIGHT = 6;
         iMatrixImpl = new IMatrixImpl();
         iMatrixImpl.setMatrixValues(new double[][]{
-                {1,2,3,4},
-                {2,3,4,5},
-                {3,4,5,6},
-                {4,5,6,7}
+                {1,2,3},
+                {2,3,4},
+                {3,4,5},
         });
-        assertEquals(iMatrixImpl.determinant(),0);
+        assertEquals(iMatrixImpl.determinant(),0.0);
+        iMatrixImpl.setMatrixValues(new double[][]{
+                {1,2},
+                {0,1},
+        });
+        assertEquals(iMatrixImpl.determinant(),1.0);
+        iMatrixImpl.setMatrixValues(new double[][]{
+                {1.5},
+        });
+        assertEquals(iMatrixImpl.determinant(),1.5);
+
+
     }
 
     @Test
@@ -70,9 +81,18 @@ public class TestIMatrixImpl {
             arr[0][i]=i;
         }
         iMatrixImpl.setMatrixValues(arr);
-        assertEquals(iMatrixImpl.toString(),"0.0 1.0 2.0 3.0 4.0 \n");
-
-
+        assertEquals(iMatrixImpl.toString(),"0.0 \n1.0 \n2.0 \n3.0 \n4.0 \n");
     }
 
+    @Test
+    public void testWeightHight(){
+        iMatrixImpl = new IMatrixImpl();
+        iMatrixImpl.setMatrixValues(new double[][]{
+                {1,2},
+                {2,3},
+                {3,4},
+        });
+        Assert.assertEquals(iMatrixImpl.getHeight(),3);
+        Assert.assertEquals(iMatrixImpl.getWidth(),2);
+    }
 }

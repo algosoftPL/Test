@@ -36,7 +36,16 @@ public class TestIMatrixImpl {
             }
         }
     }
+    @Test
+    public void testCreateMatrix() {
+        iMatrixImpl = new IMatrixImpl(new double[][]{
+                {0,1,2},
+                {3,4,5},
+                {6,7,8},
+        });
+        assertEquals(iMatrixImpl.toString(),"0.0 3.0 6.0 \n1.0 4.0 7.0 \n2.0 5.0 8.0 \n");
 
+    }
     @Test
     public void testDeterminant() throws InvalidDimensionException {
         //MATRIX_WIDTH = MATRIX_HEIGHT = 6;
@@ -52,6 +61,11 @@ public class TestIMatrixImpl {
                 {0,1},
         });
         assertEquals(iMatrixImpl.determinant(),1.0);
+        iMatrixImpl.setMatrixValues(new double[][]{
+                {1,2},
+                {1,2},
+        });
+        assertEquals(iMatrixImpl.determinant(),0.0);
         iMatrixImpl.setMatrixValues(new double[][]{
                 {1.5},
         });
@@ -94,5 +108,14 @@ public class TestIMatrixImpl {
         });
         Assert.assertEquals(iMatrixImpl.getHeight(),3);
         Assert.assertEquals(iMatrixImpl.getWidth(),2);
+    }
+
+    @Test
+    public void testSetValue()
+    {
+        iMatrixImpl = new IMatrixImpl();
+        iMatrixImpl.createIdentityMatrix(3);
+        iMatrixImpl.setMatrixValue(1,1,5);
+        assertEquals(iMatrixImpl.getMatrixValue(1,1),5.0);
     }
 }

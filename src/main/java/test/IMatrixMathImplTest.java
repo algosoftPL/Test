@@ -80,8 +80,14 @@ public class IMatrixMathImplTest {
         //det(m2)==0
         assertEquals(math.inverseMatrix(m2),null);
 
-        //todo actually finish
-
+        m.setMatrixValues(new double[][]{{1, 2, 3, 1}, {2, 3, 1, 0}, {3, 1, 0, 0}, {1, 0, 0, 0}});
+        double[][] expectedResults = new double[][]{{0, 0, 0, 1}, {0, 0, 1, -3}, {0, 1, -3, 7}, {1, -3, 7, -16}};
+        m = math.inverseMatrix(m);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(expectedResults[i][j], m.getMatrixValue(i, j), 1e-12);
+            }
+        }
     }
 
     @Test

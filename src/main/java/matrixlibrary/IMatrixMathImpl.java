@@ -52,6 +52,7 @@ public class IMatrixMathImpl implements IMatrixMath {
     }
 
     public IMatrix matrixMultiplication(IMatrix m1, IMatrix m2) throws InvalidDimensionException {
+        if(m1==null || m2==null)throw new InvalidDimensionException();
         if(m1.getWidth()!=m2.getHeight())throw new InvalidDimensionException();
         IMatrix temp = new IMatrixImpl();
         double [][] p = new double[m1.getHeight()][m2.getWidth()];

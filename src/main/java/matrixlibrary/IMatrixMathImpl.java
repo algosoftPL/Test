@@ -51,9 +51,22 @@ public class IMatrixMathImpl implements IMatrixMath {
         return result;
     }
 
-    public IMatrix matrixMultiplication(IMatrix m1, IMatrix m2) {
-        // TODO: 05/06/2016 Implement
-        return null;
+    public IMatrix matrixMultiplication(IMatrix m1, IMatrix m2) throws InvalidDimensionException {
+        if(m1.getWidth()!=m2.getHeight())throw new InvalidDimensionException();
+        IMatrix temp = new IMatrixImpl();
+        double [][] p = new double[m1.getHeight()][m2.getWidth()];
+        temp.setMatrixValues(p);
+        for(int i=0;i<m1.getHeight();i++)
+        {
+            for(int j=0;j<m2.getWidth();j++){
+                temp.setMatrixValue(j,i,0);
+                for(int k=0;k<m1.getWidth();k++)
+                {
+                 temp.setMatrixValue(j,i,temp.getMatrixValue(j,i)+m1.getMatrixValue(k,i)*m2.getMatrixValue(j,k));
+                }
+            }
+        }
+        return temp;
     }
 
     public IMatrix matrixSubtracting(IMatrix m1, IMatrix m2) throws InvalidDimensionException {
@@ -70,9 +83,17 @@ public class IMatrixMathImpl implements IMatrixMath {
         return result;
     }
 
-    public IMatrix matrixTransposition(IMatrix m1) {
-        // TODO: 05/06/2016 Implement
-        return null;
+    public IMatrix matrixTransposition(IMatrix m1) throws InvalidDimensionException {
+        IMatrix tmp=  new IMatrixImpl();
+        double [][] p = new double[m1.getHeight()][m1.getWidth()];
+        tmp.setMatrixValues(p);
+        for(int i=0;i<m1.getHeight();i++)
+        {
+            for(int j=0;j<m1.getWidth();j++){
+                tmp.setMatrixValue(i,j,m1.getMatrixValue(j,i));
+            }
+        }
+        return tmp;
     }
 
     public IMatrix scalarMultiplication(IMatrix m1, double scalar) {

@@ -54,11 +54,11 @@ public class IMatrixImpl implements IMatrix {
     }
 
     public int getWidth() {
-        return this.height;
+        return this.width;
     }
 
     public int getHeight() {
-        return this.width;
+        return this.height;
     }
 
     public String toString() {

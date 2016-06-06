@@ -14,7 +14,7 @@ public interface IMatrixMath {
     IMatrix	matrixSubtracting(IMatrix m1, IMatrix m2) throws InvalidDimensionException;
 
     /** Zwraca macierz transponowaną */
-    IMatrix	matrixTransposition(IMatrix m1);
+    IMatrix	matrixTransposition(IMatrix m1) throws InvalidDimensionException;
 
     /** Mnożenie macierzy przez skalar */
     IMatrix	scalarMultiplication(IMatrix m1, double scalar);

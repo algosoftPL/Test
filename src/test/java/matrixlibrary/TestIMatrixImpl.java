@@ -106,8 +106,8 @@ public class TestIMatrixImpl {
                 {2,3},
                 {3,4},
         });
-        Assert.assertEquals(iMatrixImpl.getHeight(),3);
-        Assert.assertEquals(iMatrixImpl.getWidth(),2);
+        Assert.assertEquals(iMatrixImpl.getHeight(),2);
+        Assert.assertEquals(iMatrixImpl.getWidth(),3);
     }
 
     @Test
